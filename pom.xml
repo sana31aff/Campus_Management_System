@@ -42,6 +42,17 @@
 
         </dependency>
 
+         <dependency>
+         
+            <groupId>org.postgresql</groupId>
+
+            <artifactId>postgresql</artifactId>
+
+            <version>42.7.8</version>
+
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -53,14 +64,14 @@
             <plugin>
 
                 <groupId>
-                    org.apache.maven.plugins
+                    org.eclipse.jetty
                 </groupId>
 
                 <artifactId>
-                    maven-compiler-plugin
+                    jetty-maven-plugin
                 </artifactId>
 
-                <version>3.11.0</version>
+                <version>9.4.57.v20241219</version>
 
             </plugin>
 

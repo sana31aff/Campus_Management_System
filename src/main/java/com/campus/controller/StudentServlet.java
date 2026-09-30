@@ -1,7 +1,8 @@
-package Campus_Management_System.src.main.java.com.campus.controller;
+package com.campus.controller;
 
-public package com.campus.controller;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,23 +19,13 @@ public class StudentServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+            throws IOException, ServletException {
+                var students = studentService.getStudents();
+                request.setAttribute("students", students);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/students.jsp");
+                dispatcher.forward(request, response);
 
-        out.println("<html>");
-        out.println("<head><title>List of Students</title></head>");
-        out.println("<body>");
-
-        out.println("<h1>All Students</h1>");
-        out.println("<ul>");
-        for (String student : studentService.getStudents()) {
-            out.println("<li>" + student + "</li>");
-        }
-        out.println("</ul>");
-        out.println("</body>");
-        out.println("</html>");
-    }
+            }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -46,7 +37,7 @@ public class StudentServlet extends HttpServlet {
         
     }
 
+        
+    }
+
     
-} {
-    
-}
